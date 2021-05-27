@@ -4,39 +4,155 @@ import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-@Entity
+import java.sql.Date;
+
+@Entity(tableName = "farm_info")
 public class DataModel {
     /**
      * id = primaryKEY
      * autoGenerate -> 자동으로 증가
      * */
-    @PrimaryKey(autoGenerate = true)
-    private int id;
-    private String title;
+    @PrimaryKey
+    private String farmNumber;
 
-    // 생성자
-    public DataModel(String title){
-        this.title = title;
+    private String farmName;
+    private String equipmentNo;
+    private String sectionNo;
+    private int Temperature;
+    private String emergencyCall;
+    private Date periodicMessage;
+    private int tempMax;
+    private int tempMin;
+    private int SensorType;
+    private boolean OnOff;
+    private int waterMax;
+    private int waterMin;
+
+
+    public DataModel(String farmNumber) {
+        this.farmNumber = farmNumber;
     }
 
-    public void setTitle(String title) { this.title = title; }
+    public String getFarmNumber() {
+        return farmNumber;
+    }
 
-    public String getTitle() { return title; }
+    public void setFarmNumber(String farmNumber) {
+        this.farmNumber = farmNumber;
+    }
 
-    public int getId() { return id; }
+    public String getFarmName() {
+        return farmName;
+    }
 
-    public void setId(int id) { this.id = id; }
+    public void setFarmName(String farmName) {
+        this.farmName = farmName;
+    }
 
-    /**
-     * toString 재정의 -> 내용확인하기 위함
-     * */
-    @NonNull
+    public String getEquipmentNo() {
+        return equipmentNo;
+    }
+
+    public void setEquipmentNo(String equipmentNo) {
+        this.equipmentNo = equipmentNo;
+    }
+
+    public String getSectionNo() {
+        return sectionNo;
+    }
+
+    public void setSectionNo(String sectionNo) {
+        this.sectionNo = sectionNo;
+    }
+
+    public int getTemperature() {
+        return Temperature;
+    }
+
+    public void setTemperature(int temperature) {
+        Temperature = temperature;
+    }
+
+    public String getEmergencyCall() {
+        return emergencyCall;
+    }
+
+    public void setEmergencyCall(String emargencyCall) {
+        this.emergencyCall = emargencyCall;
+    }
+
+    public Date getPeriodicMessage() {
+        return periodicMessage;
+    }
+
+    public void setPeriodicMessage(Date periodicMessage) {
+        this.periodicMessage = periodicMessage;
+    }
+
+    public int getTempMax() {
+        return tempMax;
+    }
+
+    public void setTempMax(int tempMax) {
+        this.tempMax = tempMax;
+    }
+
+    public int getTempMin() {
+        return tempMin;
+    }
+
+    public void setTempMin(int tempMin) {
+        this.tempMin = tempMin;
+    }
+
+    public int getSensorType() {
+        return SensorType;
+    }
+
+    public void setSensorType(int sensorType) {
+        SensorType = sensorType;
+    }
+
+    public boolean isOnOff() {
+        return OnOff;
+    }
+
+    public void setOnOff(boolean onOff) {
+        OnOff = onOff;
+    }
+
+    public int getWaterMax() {
+        return waterMax;
+    }
+
+    public void setWaterMax(int waterMax) {
+        this.waterMax = waterMax;
+    }
+
+    public int getWaterMin() {
+        return waterMin;
+    }
+
+    public void setWaterMin(int waterMin) {
+        this.waterMin = waterMin;
+    }
+
     @Override
     public String toString() {
-        final StringBuffer sb = new StringBuffer("DataModel{");
-        sb.append("id=").append(id);
-        sb.append(", title=").append(title).append('\'');
-        sb.append('}');
-        return sb.toString();
+        return "DataModel{" +
+                "farmNumber='" + farmNumber + '\'' +
+                ", farmName='" + farmName + '\'' +
+                ", equipmentNo='" + equipmentNo + '\'' +
+                ", sectionNo='" + sectionNo + '\'' +
+                ", Temperature=" + Temperature +
+                ", emergencyCall='" + emergencyCall + '\'' +
+                ", periodicMessage=" + periodicMessage +
+                ", tempMax=" + tempMax +
+                ", tempMin=" + tempMin +
+                ", SensorType=" + SensorType +
+                ", OnOff=" + OnOff +
+                ", waterMax=" + waterMax +
+                ", waterMin=" + waterMin +
+                '}';
     }
 }
